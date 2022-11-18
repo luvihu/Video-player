@@ -1,0 +1,68 @@
+@import "./buttons.css";
+
+body {
+  background-color: #26b4bc;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapper {
+  max-inline-size: 900px;
+  margin: auto;
+}
+
+.player {
+  margin-block-start: 100px;
+  /* border: 10px solid red; */
+  position: relative;
+}
+
+.player video {
+  inline-size: 100%;
+  aspect-ratio: 16/9;
+  vertical-align: middle; /*para quitar el espacio pequeño inferior*/
+  object-fit: cover; /*se expande la imagen de manera proporcional hasta ocupar tod el 16/9
+  esta propiedad solo es para imágenes*/
+}
+
+.player-title {
+  color: white;
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 20px;
+  /*margin: 0; los h1,h2,etc y párrafs tienen margen por defecto*/
+}
+
+.player-actions {
+  position: absolute;
+  inset: 0; /*ocupa el mismo espacio del padre, se estira, para poder moverlo mejor,centrearlo*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*z-index: 2;  */ /*como el video no fue renderizado,lo coloco antes los botones
+  otra manera es mover la etiqueta del video(html) antes de los botones*/
+  gap: 20px; /*espacio entre los botones*/
+}
+
+.player-progress {
+  /* background-color: yellowgreen; */
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline: 0;
+  display: flex; /*el padre de input*/
+  padding: 10px;
+  /* z-index: 2; */
+}
+
+.player-progress input {
+  flex: 1; /*con esto toma todo el contenedor del padre*/
+}
+
+.player-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: 0.4s opacity;
+}
+.player-overlay:hover {
+  opacity: 1;
+}
